@@ -10,6 +10,7 @@
     <h1>Üdvözöllek!</h1>
     <form action="index.php" method="POST">                           <!--html űrlap létrehozása-->
         <input type="number" name="number1"><br>
+        <input type="text" name="text1"><br>
         <input type="submit" value="Elküld">                         <!--gomb nyomásra elküldi a servernek-->
     </form>
     <!--megjegyzés-->
@@ -23,17 +24,18 @@ echo("<h2>Üdvözöllek: $nev, Legyen szép napod!</h2>");          //kiiratás*
 if(isset($_POST['number1']))
 {
 $ho=$_POST['number1'];
+$szoveg=$_POST['text1'];
 
-if(!empty($ho))
+if(!empty($ho))                  //!=nem, tehát, ha nem üres, akkor...
 {
     if($ho<=0){
-        echo("Szilárd.");
+        echo("Szilárd. $szoveg.");
     }
     else if($ho<100){
-        echo("Folyékony.");
+        echo("Folyékony. $szoveg");
     }
     else {
-        echo("Légnemű.");
+        echo("Légnemű. $szoveg");
     }
 }
 else {
